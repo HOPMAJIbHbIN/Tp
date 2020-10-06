@@ -1,0 +1,106 @@
+package com.company;
+import java.util.Scanner;
+import java.lang.String;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner num = new Scanner(System.in);
+        //1) Ostatok ot delenia
+        int a1,b1;
+        System.out.println("Enter first number: ");
+        a1= num.nextInt();
+        System.out.println("Enter second number: ");
+        b1= num.nextInt();
+        float temp = reminder (a1,b1);
+        System.out.println("Ostatok ot delenia = " + temp);
+
+        //2) Ploshad Trig
+        double plosh = TrigArea(a1,b1);
+        System.out.println("Ploshad treugolnika = " + plosh);
+
+        //3) Total number of legs
+        System.out.println("Enter amount animals: ");
+        System.out.println("Enter chicken: ");
+        int chicken=num.nextInt();
+        System.out.println("Enter cow: ");
+        int cow = num.nextInt();
+        System.out.println("Enter pigs: ");
+        int pigs = num.nextInt();
+        int TotalLegs = animals(chicken,cow,pigs);
+        System.out.println("Total lags of animals = " + TotalLegs);
+
+        //4) True or false
+        double prob,prize,pay;
+        prob = num.nextDouble();
+        prize = num.nextDouble();
+        pay = num.nextDouble();
+        boolean PPPres = ppp(prob,prize,pay);
+        System.out.println("True or false: " + PPPres);
+
+        //5) (+ - * /)
+        int a2,b2,N;
+        a2 =  num.nextInt();
+        b2= num.nextInt();
+        N = num.nextInt();
+        String op=operation(a2,b2,N);
+        System.out.println(op);
+
+        //6) Ascii
+        String simvol;
+        simvol = num.nextLine();
+        int Asc2 = Asc(simvol);
+        System.out.println(Asc2);
+    }
+
+    //1
+    public static float reminder (int a, int b){
+        int result;
+        result = a % b;
+        return result;
+    }
+    //2
+    public static double TrigArea(int a,int h){
+        double result = a*h*0.5;
+        return result;
+    }
+    //3
+    public static int animals (int a,int b,int c){
+        int result;
+        int chicken=2, cow=4, pigs=4;
+        result = a*chicken + b*cow + c*pigs;
+        return result;
+    }
+    //4
+    public static boolean ppp (double a,double b, double c){
+        boolean result;
+        if ((a*b)>c)
+            result=true;
+        else
+            result=false;
+        return result;
+    }
+    //5
+    public static String operation (int a, int b, int N){
+        String result;
+        if (a+b == N)
+            result = "We must plus them";
+        else if (a-b == N)
+            result = "We must minus them";
+        else if (a*b == N)
+            result = "We must Umnojit' them";
+        else if (a/b == N)
+            result = "We must delit' them";
+        else
+            result = "We cant do this";
+        return result;
+    }
+
+    //6
+    public static int Asc(String a){
+        char b=a.charAt(0);
+        int ascii=(int) b;
+        return ascii;
+    }
+}
